@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --bg-darker: #090d16;
+    --bg-sidebar: #111827;
+    --border-color: #1f2937;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --neon-red: #ef4444;
+    --neon-orange: #f97316;
+    --neon-yellow: #f59e0b;
+    --neon-green: #10b981;
+}
+
+body {
+    background-color: var(--bg-darker);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.dashboard-header {
+    background-color: var(--bg-sidebar);
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    height: 60px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-neon {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ff4a4a;
+    text-shadow: 0 0 10px rgba(255, 74, 74, 0.4);
+    letter-spacing: 1px;
+}
+
+.divider {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.status-source {
+    font-size: 0.75rem;
+    color: var(--neon-orange);
+    font-weight: bold;
+    background: rgba(249, 115, 22, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+/* Container Principal */
+.dashboard-container {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px);
+}
+
+/* Barra Lateral */
+.sidebar {
+    width: 360px;
+    background-color: var(--bg-sidebar);
+    border-right: 2px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.menu-section h3 {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+/* Cards dos Filtros */
+.card-category {
+    background-color: #0b0f19;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-category:hover {
+    border-color: #4b5563;
+    background-color: #1f2937;
+}
+
+.card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.icon-red { color: var(--neon-red); background: rgba(239, 68, 68, 0.1); }
+.icon-orange { color: var(--neon-orange); background: rgba(249, 115, 22, 0.1); }
+.icon-yellow { color: var(--neon-yellow); background: rgba(245, 158, 11, 0.1); }
+.icon-green { color: var(--neon-green); background: rgba(16, 185, 129, 0.1); }
+
+.card-info { flex: 1; }
+.card-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+.card-info p { font-size: 0.75rem; color: var(--text-muted); }
+.badge { font-size: 1rem; font-weight: bold; color: var(--text-main); }
+
+/* Lista de Áreas */
+.attention-list { padding-left: 1rem; }
+.attention-list li { font-size: 0.85rem; margin-bottom: 0.6rem; color: var(--text-main); }
+.attention-list .subtext { display: block; font-size: 0.75rem; color: var(--text-muted); }
+
+/* Wrapper do Mapa */
+.map-wrapper {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: #050811;
+}
+
+/* Customização Tática do Mapa */
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* Elementos Flutuantes */
+.map-legend, .stats-box {
+    position: absolute;
+    background-color: rgba(11, 15, 25, 0.9);
+    border: 1px solid var(--border-color);
+    padding: 0.85rem;
+    border-radius: 8px;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+.map-legend {
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 280px;
+}
+
+.map-legend h4 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot-red { background-color: var(--neon-red); box-shadow: 0 0 6px var(--neon-red); }
+.dot-orange { background-color: var(--neon-orange); box-shadow: 0 0 6px var(--neon-orange); }
+.dot-yellow { background-color: var(--neon-yellow); box-shadow: 0 0 6px var(--neon-yellow); }
+.dot-green { background-color: var(--neon-green); box-shadow: 0 0 6px var(--neon-green); }
+
+.stats-box {
+    right: 20px;
+    top: 20px;
+    width: 320px;
+}
+
+.stats-box h4 {
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    color: var(--neon-orange);
+}
+
+.alert-feed p {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Cards de KPI */
+.kpi-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-card {
+    flex: 1;
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.kpi-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--neon-green);
+}
+
+.kpi-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Grade de Filtros */
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.filter-grid button:first-child {
+    grid-column: span 2;
+}
+
+.btn-filtro-tatico {
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-filtro-tatico:hover {
+    background: #1f2937;
+    border-color: #4b5563;
+}
+
+.btn-filtro-tatico.active {
+    background: #3b82f620;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+/* Cores ativas específicas para os filtros táticos */
+.btn-filtro-tatico.tatico-critico.active { background: rgba(239, 68, 68, 0.15); border-color: var(--neon-red); color: var(--neon-red); }
+.btn-filtro-tatico.tatico-alerta.active { background: rgba(249, 115, 22, 0.15); border-color: var(--neon-orange); color: var(--neon-orange); }
+.btn-filtro-tatico.tatico-moderado.active { background: rgba(245, 158, 11, 0.15); border-color: var(--neon-yellow); color: var(--neon-yellow); }
+.btn-filtro-tatico.tatico-seguro.active { background: rgba(16, 185, 129, 0.15); border-color: var(--neon-green); color: var(--neon-green); }
+
+/* Lista de Ranking Interativo */
+.sidebar-instruction {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: -4px;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.ranking-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ranking-item {
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ranking-item:hover {
+    border-color: #4b5563;
+    transform: translateX(4px);
+    background: #161e2d;
+}
+
+.ranking-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.ranking-value {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 900px) {
+    .dashboard-header h1, .status-source { display: none; }
+    .dashboard-container { flex-direction: column-reverse; }
+    .sidebar { width: 100%; height: 45vh; border-right: none; border-top: 2px solid var(--border-color); }
+    .map-wrapper { height: 55vh; }
+    .stats-box { display: none; } /* Oculta a caixa analítica extra no mobile para dar espaço ao mapa */
+    .map-legend { bottom: 10px; left: 10px; width: calc(100% - 20px); font-size: 0.7rem; }
+}

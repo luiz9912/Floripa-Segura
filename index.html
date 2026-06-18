@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLORIPA SEGURA - ANALÍTICA DE SEGURANÇA PÚBLICA</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="logo-area">
+            <span class="logo-neon"><i class="fa-solid fa-chart-line"></i> FLORIPA SEGURA</span>
+            <span class="divider">-</span>
+            <h1>PAINEL ESTATÍSTICO DE SEGURANÇA (SSP-SC)</h1>
+        </div>
+        <div class="header-status">
+            <span class="status-source">FONTE: SISP / SVR / LAI (ÚLTIMO BALANÇO)</span>
+            <span class="status-indicator"></span>
+        </div>
+    </header>
+
+
+
+    <main class="dashboard-container">
+        
+        <aside class="sidebar">
+            <section class="menu-section">
+                <h3>VISÃO GERAL DA REGIÃO:</h3>
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <span class="kpi-value" id="kpi-total-bairros">0</span>
+                        <span class="kpi-label">Setores Monitorados</span>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-value" style="color: var(--neon-orange);" id="kpi-media-taxa">0</span>
+                        <span class="kpi-label">Média de Casos / 1k hab</span>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="menu-section">
+                <h3>FILTRAR MAPA POR GRAU DE RISCO:</h3>
+                <div class="filter-grid">
+                    <button class="btn-filtro-tatico active" data-classe="todos">Todos</button>
+                    <button class="btn-filtro-tatico tatico-critico" data-classe="critico">Crítico</button>
+                    <button class="btn-filtro-tatico tatico-alerta" data-classe="alerta">Alerta</button>
+                    <button class="btn-filtro-tatico tatico-moderado" data-classe="moderado">Moderado</button>
+                    <button class="btn-filtro-tatico tatico-seguro" data-classe="seguro">Estável</button>
+                </div>
+            </section>
+        
+            <section class="menu-section">
+                <h3>RANKING DE VULNERABILIDADE (MAIOR ÍNDICE):</h3>
+                <p class="sidebar-instruction">Clique no bairro para localizá-lo no mapa</p>
+                <ul class="ranking-list" id="dynamic-ranking">
+                    </ul>
+            </section>
+
+            <section class="menu-section list-section">
+                <h3>PONTOS DE ATENÇÃO (MAIOR ÍNDICE):</h3>
+                <ol class="attention-list">
+                    <li>Centro <span class="subtext">Av. Paulo Fontes / Entorno TICEN</span></li>
+                    <li>Jurerê/Daniela <span class="subtext">Rod. Maurício Sirotsky Sobrinho</span></li>
+                    <li>Sto Antônio Lisboa <span class="subtext">Rod. José Carlos Daux (SC-401)</span></li>
+                    <li>Trindade <span class="subtext">Entorno e Acessos à UFSC</span></li>
+                    <li>Continente <span class="subtext">Bairros Capoeiras e Monte Cristo</span></li>
+                </ol>
+            </section>
+        </aside>
+
+        <section class="map-wrapper">
+            <div id="map"></div>
+
+            <div class="map-legend">
+                <h4><span class="legend-dot dot-red"></span> Crítico (>60 ocorrências / 1k hab)</h4>
+                <h4><span class="legend-dot dot-orange"></span> Alerta (40-60 ocorrências / 1k hab)</h4>
+                <h4><span class="legend-dot dot-yellow"></span> Moderado (15-40 ocorrências / 1k hab)</h4>
+                <h4><span class="legend-dot dot-green"></span> Estável (<15 ocorrências / 1k hab)</h4>
+            </div>
+
+            <div class="live-alerts stats-box">
+                <h4><i class="fa-solid fa-database"></i> DESTAQUES DO RELATÓRIO</h4>
+                <div class="alert-feed" id="stats-feed">
+                    <p>📊 Selecione um bairro no mapa ou no ranking lateral para visualizar a análise tática detalhada.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
