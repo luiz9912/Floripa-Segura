@@ -63,12 +63,12 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Centro",
         classe: "critico",
-        taxaMilHab: 173.6,
+        taxaMilHab: 95.2,
         ocorrenciasPrevalentes: "Furtos/Roubos a Transeuntes",
         zonaCritica: "Av. Paulo Fontes (TICEN) e Praça XV",
         focosInternos: [
-            { lat: -27.5965, lng: -48.5540, raio: 220, local: "Entorno do TICEN" }, 
-            { lat: -27.5948, lng: -48.5492, raio: 150, local: "Praça XV e Calçadão" }
+            { lat: -27.598332, lng: -48.554425, raio: 210, local: "Entorno do TICEN" }, 
+            { lat: -27.598192, lng: -48.549353, raio: 210, local: "Praça XV e Calçadão" }
         ],
         centroide: [-27.5960, -48.5530],
         destaques: [
@@ -79,8 +79,8 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Trindade",
         classe: "critico",
-        taxaMilHab: 70.3,
-        ocorrenciasPrevalentes: "Roubo a Pedestres e Furtos",
+        taxaMilHab: 60.3,
+        ocorrenciasPrevalentes: "Roubo a Pedestres e Furtos Universitários",
         zonaCritica: "Acessos e Campus da UFSC",
         focosInternos: [{ lat: -27.596269, lng: -48.522057, raio: 250, local: "Centro de Convivência / Reitoria UFSC" }, { lat: -27.5885, lng: -48.5220, raio: 150, local: "Comércio da Lauro Linhares" }],
         centroide: [-27.5980, -48.5180],
@@ -105,7 +105,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Capoeiras",
         classe: "critico",
-        taxaMilHab: 61.4,
+        taxaMilHab: 58.4,
         ocorrenciasPrevalentes: "Furtos de Veículos e Roubos Comerciais",
         zonaCritica: "Vias de Conexão com Via Expressa",
         focosInternos: [{ lat: -27.5960, lng: -48.5890, raio: 280, local: "Eixo Comercial Sul da Via Expressa" }],
@@ -118,7 +118,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Estreito",
         classe: "alerta",
-        taxaMilHab: 58.2,
+        taxaMilHab: 52.2,
         ocorrenciasPrevalentes: "Arrombamentos Comerciais e Furtos de Veículos",
         zonaCritica: "Eixo Comercial Fúlvio Aducci",
         focosInternos: [{ lat: -27.590630, lng: -48.576082, raio: 190, local: "Eixo Comercial Fúlvio Aducci" }],
@@ -131,8 +131,8 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Canasvieiras",
         classe: "alerta",
-        taxaMilHab: 55.1,
-        ocorrenciasPrevalentes: "Furtos de Oportunidade e Descuidos na Praia",
+        taxaMilHab: 45.1,
+        ocorrenciasPrevalentes: "Furtos de Oportunidade (Verão) e Descuidos na Praia",
         zonaCritica: "Ruas de Acesso à Faixa de Areia",
         focosInternos: [{ lat: -27.428653, lng: -48.467194, raio: 200, local: "Avenidas Próximas à Orla Marítima" }],
         focosInternos: [{ lat: -27.427115, lng: -48.452723, raio: 200, local: "Avenidas Próximas à Orla Marítima" }],
@@ -144,8 +144,8 @@ const baseEstatisticaBairros = [
     },
     {
         bairroMapeado: "Lagoa da Conceição",
-        classe: "alerta",
-        taxaMilHab: 51.5,
+        classe: "moderado",
+        taxaMilHab: 39.5,
         ocorrenciasPrevalentes: "Furtos de Veículos e Lazer Noturno",
         zonaCritica: "Centrinho e Av. das Rendeiras",
         focosInternos: [{ lat: -27.601908, lng: -48.469023, raio: 180, local: "Centrinho da Lagoa" }],
@@ -158,7 +158,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Ingleses",
         classe: "alerta",
-        taxaMilHab: 49.2,
+        taxaMilHab: 50.2,
         ocorrenciasPrevalentes: "Furtos a Residências e Estabelecimentos",
         zonaCritica: "Centrinho dos Ingleses e Orla",
         focosInternos: [{ lat: -27.4420, lng: -48.4020, raio: 250, local: "Centrinho Comercial / SC-403" }],
@@ -171,7 +171,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Campeche",
         classe: "moderado",
-        taxaMilHab: 43.7,
+        taxaMilHab: 37.7,
         ocorrenciasPrevalentes: "Arrombamentos Residenciais Noturnos",
         zonaCritica: "Acessos Secundários à Praia",
         focosInternos: [{ lat: -27.6850, lng: -48.4820, raio: 200, local: "Zonas Residenciais Isoladas" }],
@@ -182,9 +182,9 @@ const baseEstatisticaBairros = [
         ]
     },
     {
-        bairroMapeado: "Carioca / Saco dos Limões",
+        bairroMapeado: "Saco dos Limões",
         classe: "moderado",
-        taxaMilHab: 32.5,
+        taxaMilHab: 27.5,
         ocorrenciasPrevalentes: "Delitos de Proximidade e Vandalismo",
         zonaCritica: "Acessos ao Túnel Antonieta de Barros",
         focosInternos: [{ lat: -27.6120, lng: -48.5350, raio: 160, local: "Proximidades do Eixo Viário Principal" }],
@@ -197,7 +197,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Coqueiros",
         classe: "seguro",
-        taxaMilHab: 18.2,
+        taxaMilHab: 17.2,
         ocorrenciasPrevalentes: "Furtos de Objetos dentro de Carros",
         zonaCritica: "Orla Gastronômica (Vias de Estacionamento)",
         focosInternos: [{ lat: -27.61170, lng: -48.583330, raio: 160, local: "Zonas de Estacionamento da Orla" }],
@@ -223,7 +223,7 @@ const baseEstatisticaBairros = [
     {
         bairroMapeado: "Jurerê Internacional",
         classe: "seguro",
-        taxaMilHab: 12.4,
+        taxaMilHab: 10.4,
         ocorrenciasPrevalentes: "Furtos Noturnos de Oportunidade",
         zonaCritica: "Residências Isoladas",
         focosInternos: [], 
